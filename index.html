@@ -105,6 +105,14 @@
 
     #restartBtn { display: none; }
 
+    #modeToggle { display: flex; gap: 8px; }
+    #modeToggle button { padding: 6px 18px; font-size: 13px; }
+    #modeToggle button.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
     .arrows {
       display: grid;
       grid-template-columns: repeat(3, 44px);
@@ -126,6 +134,11 @@
 </head>
 <body>
   <h1>Snake</h1>
+
+  <div id="modeToggle">
+    <button id="btnKid"   class="active">🧒 Kid</button>
+    <button id="btnAdult">⚡ Adult</button>
+  </div>
 
   <div id="scorebar">
     Score: <span id="score">0</span>
@@ -156,6 +169,8 @@
     const msgEl   = document.getElementById('msg');
     const restartBtn = document.getElementById('restartBtn');
 
+    const KID_SPEED = 300, ADULT_SPEED = 120;
+    let SPEED = KID_SPEED;
     let snake, dir, nextDir, food, score, best = 0, running = false, started = false, raf;
 
     function init() {
@@ -274,6 +289,17 @@
       const d = {x: dx, y: dy};
       if (d.x !== -dir.x || d.y !== -dir.y) nextDir = d;
     }
+
+    document.getElementById('btnKid').addEventListener('click', () => {
+      SPEED = KID_SPEED;
+      document.getElementById('btnKid').classList.add('active');
+      document.getElementById('btnAdult').classList.remove('active');
+    });
+    document.getElementById('btnAdult').addEventListener('click', () => {
+      SPEED = ADULT_SPEED;
+      document.getElementById('btnAdult').classList.add('active');
+      document.getElementById('btnKid').classList.remove('active');
+    });
 
     document.getElementById('btnUp').addEventListener('click',    () => tap(0, -1));
     document.getElementById('btnDown').addEventListener('click',  () => tap(0, 1));
