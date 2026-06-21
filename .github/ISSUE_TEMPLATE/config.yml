@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🎮 Play the Game
+    url: https://bodhiprotocol.github.io/snake-game/
+    about: Play Snake directly in your browser — no install needed.
