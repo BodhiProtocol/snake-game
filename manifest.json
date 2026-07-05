@@ -1,0 +1,11 @@
+{
+  "name": "Snake Game — BodhiProtocol",
+  "short_name": "Snake",
+  "description": "Classic Snake. Kids & Adult speed modes.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#22c55e",
+  "orientation": "portrait",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
